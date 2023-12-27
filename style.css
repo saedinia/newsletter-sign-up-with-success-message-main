@@ -1,28 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --color-primary-tomato: hsl(4, 100%, 67%);
-
+    --color-primary: hsl(4, 100%, 65%);
+    --color-secondary: hsl(4, 100%, 45%);
     --color-dark-slate-grey: hsl(234, 29%, 20%);
     --color-charcoal-grey: hsl(235, 18%, 26%);
     --color-grey: hsl(231, 7%, 60%);
     --color-white: hsl(0, 0%, 100%);
 
-    --font-family-default: 'Roboto', sans-serif;
+    --ff-default: 'Roboto', sans-serif;
 
     --font-regular: 500;
     --font-bold: 700;
     --font-black: 800;
   
-    --fontsize-100: 0.75rem;
-    --fontsize-200: 0.9rem;
-    --fontsize-300: 1rem;
-    --fontsize-400: 1.125rem;
-    --fontsize-500: 1.25rem;
-    --fontsize-600: 1.5rem;
-    --fontsize-700: 1.75rem;
-    --fontsize-800: 2rem;
-    --fontsize-900: 5rem;
+    --fs-100: 0.75rem;
+    --fs-200: 0.9rem;
+    --fs-300: 1rem;
+    --fs-400: 1.125rem;
+    --fs-500: 1.25rem;
+    --fs-600: 1.5rem;
+    --fs-700: 1.75rem;
+    --fs-800: 2.5rem;
+    --fs-900: 3.5rem;
 }
 
 *,
@@ -33,7 +33,6 @@
 
 * {
   margin: 0;
-  font: inherit;
 }
 
 img,
@@ -43,7 +42,166 @@ svg {
 }
 
 body { 
-  font-family: var(--font-family-default);
-  font-size: var(--fontsize-300);
+  font-family: var(--ff-default);
+  font-size: var(-fs-300);
   background: var(--color-dark-slate-grey);
+  line-height: 1.25;
+}
+
+main {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+}
+
+.newsletter {
+  background: var(--color-white);
+}
+
+.layout-grid {
+  --gap: 2rem;
+  --padding: 2rem;
+
+  display: grid;
+  gap: var(--gap);
+  align-items: center;
+}
+
+.layout-grid > .order-1 {
+  order: -1
+}
+
+.layout-grid.newsletter__success {
+  padding: 2rem;
+  width: 30rem;
+  display: none;
+}
+
+.newsletter__image img {
+  display: block;
+  width: 100%;  
+}
+
+.newsletter__image img[data-query-img="desktop"] {
+  display: none;
+}
+
+.newsletter__content {
+  padding-inline: var(--padding);
+  display: grid;
+  gap: 1rem;  
+}
+
+h1 {
+  font-size: var(--fs-900);
+  
+}
+
+.newsletter__content .lists {
+  list-style: none;
+  padding: 0;
+}
+
+.lists li {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.lists li::before {
+  content: '';
+  height: 25px;
+  width: 25px;
+  display: inline-block;  
+  background: url('./assets/images/icon-list.svg') no-repeat;  
+}
+
+.form-group {
+  display: grid;
+  gap: 0.5rem
+}
+
+.form-group .label-error-msg {
+  font-size: var(--fs-100);
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group .label-error-msg label { 
+  font-weight: var(--font-black);
+}
+
+.form-group .label-error-msg span { 
+  color: var(--color-primary);
+  font-weight: var(--font-black);
+  display: none;
+}
+
+.form-group input[type="text"] {
+  outline: none;
+  border: 1px solid var(--color-grey);
+  border-radius: 0.3rem;
+  padding: 1rem;
+  font-size: var(--fs-300);
+}
+
+.form-group input[type="text"]:active,
+.form-group input[type="text"]:focus {
+  border-color: var(--color-dark-slate-grey);
+}
+
+.form-group input[type="text"]::placeholder {
+  color: var(--color-grey);
+}
+
+button {
+  border-radius: 0.3rem;
+  border: none;
+  background: var(--color-dark-slate-grey);
+  color: var(--color-white);
+  font-size: var(--fs-300);
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+p {
+  line-height: 1.5rem;
+}
+span.email {
+  font-weight: var(--font-black);
+}
+
+button:hover,
+button:active,
+button:focus {
+  background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+
+@media screen and (min-width: 800px) {
+  main {
+    place-items: center;
+  }
+  
+  .newsletter {
+    max-width: 60rem;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    width: fit-content;
+  }
+  
+  .layout-grid.newsletter__container {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .layout-grid > .order-1 {
+    order: unset
+  }
+  
+  .newsletter__image img[data-query-img="mobile"] {
+    display: none;
+  }
+
+  .newsletter__image img[data-query-img="desktop"] {
+    display: block;
+  }
 }

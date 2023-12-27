@@ -11,6 +11,55 @@
 
 </head>
 <body>
+  <main>
+    <div class="newsletter">
+      <div class="layout-grid newsletter__container">
+        <div class="clo">
+          <div class="newsletter__content">
+            <h1>Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <ul class="lists">
+              <li>Product discovery and building what matters</li>
+              <li>Measuring to ensure updates are a success</li>
+              <li>And much more!</li>
+            </ul>
+            <form id="newsletter-form">
+              <div class="form-group">
+                <div class="label-error-msg">
+                  <label for="email">Email address</label>
+                  <span>Valid email required</span>
+                </div>
+                
+                <input type="text" name="email" id="email" placeholder="email@company.com">
+              </div>
+              <div class="form-group">
+                <button> Subscribe to monthly newsletter</button>
+              </div>  
+            
+            </form>
+          </div>          
+        </div>
+        <div class="clo order-1">
+          <div class="newsletter__image">
+            <img src="./assets/images/illustration-sign-up-mobile.svg" alt="" data-query-img="mobile">
+            <img src="./assets/images/illustration-sign-up-desktop.svg" alt="" data-query-img="desktop">
+          </div>          
+        </div>
+      </div>
 
+      <div class="layout-grid newsletter__success">
+        <img src="./assets/images/icon-success.svg" alt="">
+        <h1>Thanks for subscribing!</h1>
+        <p>
+          A confirmation email has been sent to <span class="email">ash@loremcompany.com</span>. 
+          Please open it and click the button inside to confirm your subscription.
+        </p>
+        <button>Dismiss message</button>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="./main.js"></script>
 </body>
 </html>
