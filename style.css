@@ -93,8 +93,7 @@ main {
 }
 
 h1 {
-  font-size: var(--fs-900);
-  
+  font-size: var(--fs-800);  
 }
 
 .newsletter__content .lists {
@@ -203,5 +202,9 @@ button:focus {
 
   .newsletter__image img[data-query-img="desktop"] {
     display: block;
+  }
+
+  h1 {
+    font-size: var(--fs-900);  
   }
 }
